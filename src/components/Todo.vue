@@ -2,7 +2,12 @@
 	<h1>To Do Sample</h1>
 	<form @submit.prevent="addNewTodo">
 		<label for="newTodo">New Todo</label>
-		<input v-model="newTodo" type="text" name="newTodo" />
+		<input
+			v-model="newTodo"
+			type="text"
+			name="newTodo"
+			@keyup:enter="addNewTodo"
+		/>
 		<button>Add New Todo</button>
 	</form>
 	<div class="extraBtns">
@@ -82,9 +87,10 @@ body {
 }
 input,
 button {
-	width: 100%;
+	width: 80%;
 	font-size: 1em;
 	margin: 0.5em;
+	outline: none;
 }
 form {
 	margin-bottom: 20px;
