@@ -5,6 +5,10 @@
 		<input v-model="newTodo" type="text" name="newTodo" />
 		<button>Add New Todo</button>
 	</form>
+	<div class="extraBtns">
+		<button @click="removeAllList">Remove All List</button>
+		<button @click="markAllDone">Mark All Done</button>
+	</div>
 	<ul>
 		<li v-for="(todo, index) in todos" :key="todo.id">
 			<input
@@ -46,12 +50,22 @@ export default {
 			todos.value.splice(index, 1);
 		}
 
+		function markAllDone() {
+			todos.value.forEach(todo => (todo.done = true));
+		}
+
+		function removeAllList() {
+			todos.value = [];
+		}
+
 		return {
 			newTodo,
 			todos,
 			addNewTodo,
 			toggleDone,
 			removeTodo,
+			markAllDone,
+			removeAllList,
 		};
 	},
 };
@@ -73,8 +87,7 @@ button {
 	margin: 0.5em;
 }
 form {
-	width: 500px;
-	margin: 10px auto;
+	margin-bottom: 20px;
 }
 label {
 	text-align: left;
@@ -84,7 +97,7 @@ ul {
 }
 li {
 	display: flex;
-	margin: 10px;
+	margin: 15px;
 }
 .todo {
 	cursor: pointer;
@@ -99,5 +112,9 @@ li {
 	margin: 0 0 0 100px;
 	font-size: 0.6em;
 	width: 120px;
+}
+.extraBtns {
+	display: flex;
+	justify-content: space-around;
 }
 </style>
