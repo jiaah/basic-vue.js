@@ -1,0 +1,20 @@
+{
+	"root": true,
+	"env": {
+		"node": true
+	},
+	"extends": [
+		"plugin:vue/vue3-essential",
+		"eslint:recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["vue"],
+	"parserOptions": {
+		"parser": "babel-eslint"
+	},
+	"rules": {
+		"vue/no-multiple-template-root": 0,
+		"no-unused-vars": 1,
+		"no-console": 0
+	}
+}
