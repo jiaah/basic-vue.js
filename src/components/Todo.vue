@@ -1,12 +1,12 @@
 <template>
 	<h1>To Do Sample</h1>
 	<form @submit.prevent="addNewTodo">
-		<label for="todo">New Todo</label>
-		<input v-model="newTodo" type="text" name="todo" />
+		<label for="newTodo">New Todo</label>
+		<input v-model="newTodo" type="text" name="newTodo" />
 		<button>Add New Todo</button>
 	</form>
 	<ul>
-		<li v-for="todo in todos" :key="todo.id">
+		<li v-for="(todo, index) in todos" :key="todo.id">
 			<input
 				type="checkbox"
 				name="todo"
@@ -18,6 +18,7 @@
 			<span :class="{ done: todo.done }">
 				{{ todo.content }}
 			</span>
+			<button class="removeBtn" @click="removeTodo(index)">Remove</button>
 		</li>
 	</ul>
 </template>
@@ -40,12 +41,17 @@ export default {
 		function toggleDone(todo) {
 			todo.done = !todo.done;
 		}
-		console.log('todos', todos.value);
+
+		function removeTodo(index) {
+			todos.value.splice(index, 1);
+		}
+
 		return {
 			newTodo,
 			todos,
 			addNewTodo,
 			toggleDone,
+			removeTodo,
 		};
 	},
 };
@@ -61,16 +67,8 @@ body {
 	margin: 0 auto;
 }
 input,
-textarea,
-button,
-p,
-div,
-section,
-article,
-select {
-	display: 'block';
+button {
 	width: 100%;
-	font-family: sans-serif;
 	font-size: 1em;
 	margin: 0.5em;
 }
@@ -78,11 +76,15 @@ form {
 	width: 500px;
 	margin: 10px auto;
 }
+label {
+	text-align: left;
+}
 ul {
 	list-style: none;
 }
 li {
 	display: flex;
+	margin: 10px;
 }
 .todo {
 	cursor: pointer;
@@ -91,5 +93,11 @@ li {
 .done {
 	color: gray;
 	text-decoration: line-through;
+}
+.removeBtn {
+	cursor: pointer;
+	margin: 0 0 0 100px;
+	font-size: 0.6em;
+	width: 120px;
 }
 </style>
