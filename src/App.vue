@@ -3,22 +3,22 @@
 	<Greet />
 	<Counter />
 	<AutoCounter />
-	<Todo />
+	<Parent />
 </template>
 
 <script>
-import Todo from './components/Todo';
+import Greet from './components/Greet';
 import Counter from './components/Counter';
 import AutoCounter from './components/AutoCounter';
-import Greet from './components/Greet';
+import Parent from './components/Parent';
 
 export default {
 	name: 'App',
 	components: {
-		Todo,
+		Greet,
 		Counter,
 		AutoCounter,
-		Greet,
+		Parent,
 	},
 };
 </script>

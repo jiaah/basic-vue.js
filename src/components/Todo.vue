@@ -21,7 +21,7 @@
 				name="todo"
 				class="todo"
 				:id="todo.id"
-				:checked="todo.done"
+				v-model="todo.done"
 				@click="toggleDone(todo)"
 			/>
 			<span :class="{ done: todo.done }">
