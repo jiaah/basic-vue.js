@@ -19,8 +19,8 @@
 			<input
 				type="checkbox"
 				name="todo"
-				id="todo.id"
 				class="todo"
+				:id="todo.id"
 				:checked="todo.done"
 				@click="toggleDone(todo)"
 			/>

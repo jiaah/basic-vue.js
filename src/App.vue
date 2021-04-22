@@ -2,12 +2,14 @@
 	<img alt="Vue logo" src="./assets/logo.png" />
 	<Greet />
 	<Counter />
+	<AutoCounter />
 	<Todo />
 </template>
 
 <script>
 import Todo from './components/Todo';
 import Counter from './components/Counter';
+import AutoCounter from './components/AutoCounter';
 import Greet from './components/Greet';
 
 export default {
@@ -15,6 +17,7 @@ export default {
 	components: {
 		Todo,
 		Counter,
+		AutoCounter,
 		Greet,
 	},
 };

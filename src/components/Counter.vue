@@ -1,21 +1,32 @@
 <template>
-	<button @click="counter += 1">Add 1</button>
-	<p>The button's been clicked {{ counter }} times.</p>
-	<p>auto counter : {{ autoCounter }}</p>
+	<button @click="counterMethod += 1">method button</button>
+	<p>counterMethod : {{ counterMethod }}</p>
+	<button @click="counterComputed += 1">computed button</button>
+	<p>counterComputed : {{ counterComputed }}</p>
+	{{ printTextMethod() }}
+	{{ printTextComputed }}
 </template>
 
 <script>
 export default {
 	data() {
 		return {
-			counter: 0,
-			autoCounter: 0,
+			counterComputed: 0,
+			counterMethod: 0,
 		};
 	},
-	mounted() {
-		setInterval(() => {
-			this.autoCounter++;
-		}, 1000);
+	methods: {
+		printTextMethod: function () {
+			console.log(`counter printed from method: ${this.counterMethod}`);
+			return;
+		},
+	},
+	computed: {
+		// eslint-disable-next-line vue/return-in-computed-property
+		printTextComputed: function () {
+			console.log(`counter printed from computed: ${this.counterComputed}`);
+			return;
+		},
 	},
 };
 </script>
