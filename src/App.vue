@@ -1,28 +1,23 @@
 <template>
 	<img alt="Vue logo" src="./assets/logo.png" />
-	<NumberFormat />
-	<Greet />
-	<Counter />
-	<AutoCounter />
-	<Parent />
+	<ul>
+		<li><router-link to="/todo">todo page</router-link></li>
+		<li><router-link to="/autoCounter">autoCounter page</router-link></li>
+		<li><router-link to="/counter">counter page</router-link></li>
+		<li>
+			<router-link
+				:to="{ name: 'greet', params: { username: 'KoreanSpaceData' } }"
+				>greet page</router-link
+			>
+		</li>
+		<li><router-link to="/number">number page</router-link></li>
+	</ul>
+	<router-view></router-view>
 </template>
 
 <script>
-import NumberFormat from './components/number';
-import Greet from './components/Greet';
-import Counter from './components/Counter';
-import AutoCounter from './components/AutoCounter';
-import Parent from './components/Parent';
-
 export default {
 	name: 'App',
-	components: {
-		NumberFormat,
-		Greet,
-		Counter,
-		AutoCounter,
-		Parent,
-	},
 };
 </script>
 
