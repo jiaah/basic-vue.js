@@ -6,7 +6,11 @@
 		<li><router-link to="/counter">counter page</router-link></li>
 		<li>
 			<router-link
-				:to="{ name: 'greet', params: { username: 'KoreanSpaceData' } }"
+				:to="{
+					name: 'Greet',
+					params: { username: 'KoreanSpaceData', id: 21 },
+					query: { location: 'seoul', life: 'beautiful' },
+				}"
 				>greet page</router-link
 			>
 		</li>

@@ -1,4 +1,6 @@
 <template>
+	<p>params: {{ $route.params }}</p>
+	<p>query: {{ $route.query }}</p>
 	<button @click="greet">Greet</button>
 </template>
 

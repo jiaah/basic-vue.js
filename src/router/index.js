@@ -16,7 +16,11 @@ const routes = [
 		component: () => import('../components/AutoCounter'),
 	},
 	{ path: '/counter', name: 'counter', component: Counter },
-	{ path: '/greet/:username', name: 'greet', component: Greet },
+	{
+		path: '/greet/:username/:id',
+		name: 'Greet',
+		component: Greet,
+	},
 	{ path: '/number', name: 'number', component: Number },
 ];
 

@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import { router } from './router/index';
+import { router } from './router';
 
 // 4. Create and mount the root instance.
 const app = createApp(App);
