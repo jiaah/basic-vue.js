@@ -1,5 +1,5 @@
 <template>
-	<h1>To Do Sample</h1>
+	<h3>To Do Sample</h3>
 	<form @submit.prevent="addNewTodo">
 		<label for="newTodo">New Todo</label>
 		<input
@@ -14,54 +14,50 @@
 		<button @click="removeAllList">Remove All List</button>
 		<button @click="markAllDone">Mark All Done</button>
 	</div>
-	<ul>
-		<li v-for="(todo, index) in todos" :key="todo.id">
-			<input
-				type="checkbox"
-				name="todo"
-				class="todo"
-				:id="todo.id"
-				v-model="todo.done"
-				@click="toggleDone(todo)"
-			/>
-			<span :class="{ done: todo.done }">
-				{{ todo.content }}
-			</span>
-			<button class="removeBtn" @click="removeTodo(index)">Remove</button>
-		</li>
-	</ul>
+
+	<todoList
+		title="title props -!!"
+		:todos="todos"
+		:toggleDone="toggleDone"
+		:removeTodo="removeTodo"
+	>
+	</todoList>
 </template>
 
 <script>
 import { ref } from 'vue';
 import { nanoid } from 'nanoid';
+import TodoList from './TodoList';
 
 export default {
+	components: {
+		TodoList,
+	},
 	setup() {
 		const newTodo = ref('');
 		const todos = ref([]);
 
-		function addNewTodo() {
+		const addNewTodo = () => {
 			const id = nanoid();
 			todos.value.push({ id, done: false, content: newTodo.value });
 			newTodo.value = '';
-		}
+		};
 
-		function toggleDone(todo) {
+		const toggleDone = todo => {
 			todo.done = !todo.done;
-		}
+		};
 
-		function removeTodo(index) {
+		const removeTodo = index => {
 			todos.value.splice(index, 1);
-		}
+		};
 
-		function markAllDone() {
+		const markAllDone = () => {
 			todos.value.forEach(todo => (todo.done = true));
-		}
+		};
 
-		function removeAllList() {
+		const removeAllList = () => {
 			todos.value = [];
-		}
+		};
 
 		return {
 			newTodo,

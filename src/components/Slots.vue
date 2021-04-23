@@ -1,18 +1,18 @@
 <template>
 	<h3>- Slots -</h3>
-	<child v-slot="{ data, hey }">
+	<child #="{ data, hey }">
 		{{ data }}
 		<button @click="clicked()">call parent method</button>
 		<button @click="hey">call child method</button>
 	</child>
 	<ChildV>
-		<template v-slot:header>
+		<template #header>
 			<h2>title from slot</h2>
 		</template>
-		<template v-slot:default>
+		<template #default>
 			<p>main content from slot</p>
 		</template>
-		<template v-slot:footer>
+		<template #footer>
 			<p>footer from slot</p>
 		</template>
 	</ChildV>
