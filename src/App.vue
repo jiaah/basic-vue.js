@@ -1,9 +1,9 @@
 <template>
 	<img alt="Vue logo" src="./assets/logo.png" />
 	<ul>
-		<li><router-link to="/todo">todo page</router-link></li>
-		<li><router-link to="/autoCounter">autoCounter page</router-link></li>
-		<li><router-link to="/counter">counter page</router-link></li>
+		<li><router-link to="/todo">todo sample</router-link></li>
+		<li><router-link to="/autoCounter">life cycle</router-link></li>
+		<li><router-link to="/counter">method vs compute</router-link></li>
 		<li>
 			<router-link
 				:to="{
@@ -11,10 +11,11 @@
 					params: { username: 'KoreanSpaceData', id: 21 },
 					query: { location: 'seoul', life: 'beautiful' },
 				}"
-				>greet page</router-link
+				>routes</router-link
 			>
 		</li>
-		<li><router-link to="/number">number page</router-link></li>
+		<li><router-link to="/number">helper function</router-link></li>
+		<li><router-link to="/slots">slots</router-link></li>
 	</ul>
 	<router-view></router-view>
 </template>

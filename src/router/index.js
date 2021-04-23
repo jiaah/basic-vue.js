@@ -4,6 +4,7 @@ import Parent from '../components/Parent';
 import Counter from '../components/Counter';
 import Greet from '../components/Greet';
 import Number from '../components/Number';
+import Slots from '../components/Slots';
 
 // 1. Define some routes
 // Each route should map to a component.
@@ -22,6 +23,7 @@ const routes = [
 		component: Greet,
 	},
 	{ path: '/number', name: 'number', component: Number },
+	{ path: '/slots', name: 'slots', component: Slots },
 ];
 
 // 2. Create the router instance and pass the `routes` option
